@@ -1,0 +1,89 @@
+<div class="cart-container">
+  <div class="container-child">
+    <div class="cart-items-container">
+      <div *ngFor="let item of cartItems" class="cart-item">
+        <img class="item-img" src="{{ item.url }}" alt="{{ item.name }}" />
+        <div class="item-info">
+          <div>
+            <h2>{{ item.name }}</h2>
+            <h3>${{ item.price }}</h3>
+          </div>
+          <form class="card-form" #form="ngForm" (ngSubmit)="submitForm()">
+            <div class="amount-container">
+              <button
+                class="decrease-btn amount-btn"
+                type="button"
+                (click)="decrease(item)"
+              >
+                -
+              </button>
+              <input
+                class="amount-input"
+                name="amount field"
+                [(ngModel)]="item.amount"
+                type="number"
+                min="1"
+                readonly
+              />
+              <button
+                class="increase-btn amount-btn"
+                type="button"
+                (click)="increase(item)"
+              >
+                +
+              </button>
+            </div>
+          </form>
+        </div>
+        <button class="remove-item" (click)="removeItem(item)">✖</button>
+      </div>
+    </div>
+    <h1 style="margin-top: 1.5rem">Total: ${{ total }}</h1>
+  </div>
+  <div class="payment-info container-child">
+    <form #form="ngForm" (ngSubmit)="submitForm()">
+      <div class="payment-child">
+        <h3>Full Name</h3>
+        <input
+          required
+          type="text"
+          name="name"
+          minlength="3"
+          maxlength="30"
+          [(ngModel)]="name"
+          placeholder="(minimum 3 characters)"
+        />
+      </div>
+      <div class="payment-child">
+        <h3>Address</h3>
+        <input
+          type="text"
+          required
+          minlength="6"
+          maxlength="30"
+          name="address"
+          [(ngModel)]="address"
+          placeholder="(minimum 6 characters)"
+        />
+      </div>
+      <div class="payment-child">
+        <h3>Creadit Card Number</h3>
+        <input
+          type="text"
+          required
+          minlength="16"
+          maxlength="16"
+          name="address"
+          [(ngModel)]="card"
+          placeholder="(16 character)"
+        />
+      </div>
+      <input
+        class="submit-btn"
+        type="submit"
+        [disabled]="form.invalid"
+        value="Submit"
+      />
+    </form>
+  </div>
+</div>

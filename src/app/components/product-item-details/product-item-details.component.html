@@ -1,0 +1,41 @@
+<div class="details-container">
+  <div class="details-img">
+    <img
+      class="product-image"
+      src="{{ product.url }}"
+      alt="{{ product.name }} image"
+    />
+  </div>
+  <div class="details-info">
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+    <h3>${{ product.price }}</h3>
+    <form class="card-form" #form="ngForm" (ngSubmit)="submitForm()">
+      <div class="amount-container">
+        <button
+          class="decrease-btn amount-btn"
+          type="button"
+          (click)="decrease()"
+        >
+          -
+        </button>
+        <input
+          class="amount-input"
+          name="amount field"
+          [(ngModel)]="amount"
+          type="number"
+          min="1"
+          readonly
+        />
+        <button
+          class="increase-btn amount-btn"
+          type="button"
+          (click)="increase()"
+        >
+          +
+        </button>
+      </div>
+      <input class="submit-btn" type="submit" value="Add to Cart" />
+    </form>
+  </div>
+</div>

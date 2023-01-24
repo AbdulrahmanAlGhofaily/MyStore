@@ -1,0 +1,145 @@
+.cart-container {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.container-child {
+  width: calc(100% / 2);
+}
+
+.cart-items-container {
+  max-height: 60rem;
+  overflow-y: scroll;
+  border-radius: 15px;
+  box-shadow: 0.4rem 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.cart-item {
+  display: flex;
+  gap: 2rem;
+  height: 18rem;
+  padding: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.cart-item img {
+  height: 100%;
+  border-radius: 15px;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.amount-container {
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  background: rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.1);
+}
+
+.amount-btn {
+  all: unset;
+  cursor: pointer;
+  font-size: 2.2rem;
+  padding: 0.5rem 1.5rem;
+  transition: all ease-in-out 0.2s;
+}
+
+.decrease-btn {
+  border-radius: 15px 0 0 15px;
+}
+
+.increase-btn {
+  border-radius: 0 15px 15px 0;
+}
+
+.amount-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.amount-input {
+  all: unset;
+  width: 10rem;
+  font-size: 1.8rem;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.remove-item {
+  all: unset;
+  cursor: pointer;
+  font-size: 1.8rem;
+  padding: 0.2rem;
+  border-radius: 15px;
+  margin-left: auto;
+  place-self: start end;
+}
+
+.payment-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-info form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.payment-child h3 {
+  font-size: 2rem;
+}
+
+.payment-child input {
+  all: unset;
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.submit-btn {
+  all: unset;
+  cursor: pointer;
+  font-size: 2rem;
+  width: fit-content;
+  padding: 0.5rem 1.5rem;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.1);
+  transition: all ease-in 0.2s;
+}
+
+.submit-btn:disabled {
+  color: #777;
+  background: rgba(255, 255, 255, 0);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.submit-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}

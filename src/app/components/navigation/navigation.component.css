@@ -1,0 +1,40 @@
+nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #ffffff78;
+}
+
+.store-title {
+  font-weight: 400;
+  font-size: 4rem;
+  color: #242424bb;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-links :not(:last-child) {
+  border-right: 1px solid #ffffff78;
+  padding-right: 1.5rem;
+}
+
+.nav-links a:visited,
+.nav-links a:link {
+  color: #242424bb;
+  font-size: 2.4rem;
+  font-weight: 400;
+  padding-left: 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all ease-in-out 0.2s;
+}
+
+.nav-links a:hover {
+  color: #24242479;
+}
