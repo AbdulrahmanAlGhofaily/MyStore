@@ -88,3 +88,25 @@ body::after {
 .row {
   width: 100%;
 }
+
+@media only screen and (max-width: 59.375em) {
+  html {
+    font-size: 43%;
+  }
+}
+
+@media only screen and (max-width: 51.25em) {
+  html {
+    font-size: 37.5%;
+    zoom: 100%;
+  }
+}
+
+@media only screen and (max-width: 45em) {
+}
+
+@media only screen and (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}

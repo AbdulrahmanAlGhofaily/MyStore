@@ -93,3 +93,9 @@ input::-webkit-inner-spin-button {
   border-right: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.1);
 }
+
+@media only screen and (max-width: 43.25em) {
+  .details-container {
+    flex-direction: column;
+  }
+}
