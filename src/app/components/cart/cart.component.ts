@@ -2,12 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/models/CartItem';
 import { CartService } from 'src/app/services/cart.service';
 import { Router } from '@angular/router';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -26,6 +21,8 @@ export class CartComponent implements OnInit {
   card: string;
   orderForm!: FormGroup;
   submitted: boolean = false;
+  isLessThanSix = false;
+  errorMessage = 'Address must be at least 6 characters.';
 
   constructor(
     private cartService: CartService,
@@ -64,7 +61,7 @@ export class CartComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(3),
+          Validators.minLength(6),
           Validators.maxLength(30),
         ],
       ],
@@ -98,6 +95,14 @@ export class CartComponent implements OnInit {
   decrease(item: CartItem) {
     if (item.amount !== 1) this.cartService.updateItemAmount(item, 'dec');
     this.updateTotal();
+  }
+
+  addressValueChange(value: string) {
+    if (value.length < 6) {
+      this.isLessThanSix = true;
+    } else if (value.length >= 6) {
+      this.isLessThanSix = false;
+    }
   }
 
   submitForm() {
