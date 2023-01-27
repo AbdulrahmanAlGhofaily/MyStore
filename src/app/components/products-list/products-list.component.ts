@@ -15,6 +15,10 @@ export class ProductsListComponent implements OnInit {
 
   constructor(private productService: ProductService) {}
 
+  addedAlert() {
+    alert('item has been added to the cart 🛒');
+  }
+
   ngOnInit(): void {
     this.productService.getProducts().subscribe((res) => {
       this.products = res;

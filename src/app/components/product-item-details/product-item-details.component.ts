@@ -51,6 +51,6 @@ export class ProductItemDetailsComponent implements OnInit {
 
   submitForm() {
     this.cartService.addProductToCart(this.product, this.amount);
-    alert('item has been added');
+    alert('item has been added to the cart 🛒');
   }
 }

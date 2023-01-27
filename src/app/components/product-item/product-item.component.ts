@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 import { Product } from '../../models/Product';
@@ -10,6 +10,7 @@ import { Product } from '../../models/Product';
 })
 export class ProductItemComponent {
   @Input() product: Product;
+  @Output() productAdded = new EventEmitter();
   amount: number = 1;
 
   constructor(
@@ -48,6 +49,6 @@ export class ProductItemComponent {
 
   submitForm() {
     this.cartService.addProductToCart(this.product, this.amount);
-    alert('item has been added to the cart 🛒');
+    this.productAdded.emit();
   }
 }
