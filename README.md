@@ -10,7 +10,7 @@ The product-list component has a children components which are the product-item,
 Our second page is the cart page with the url `http://localhost:4200/cart`, this page includes the cart component where the items you add to the cart will be. <br>
 Finally the checkout page with the url `http://localhost:4200/checkout`. This page show a message of a successful order. <br>
 Here is a demo GIF <br>
-![Demo GIF](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Demo GIF](https://github.com/AbdulrahmanAlGhofaily/MyStore/blob/master/src/assets/demo.gif?raw=true)
 
 ## Getting started
 
