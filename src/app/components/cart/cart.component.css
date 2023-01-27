@@ -109,7 +109,7 @@ input::-webkit-inner-spin-button {
   font-size: 2rem;
 }
 
-.payment-child input {
+.form-input {
   all: unset;
   font-size: 1.6rem;
   padding: 1rem 2rem;
@@ -133,15 +133,13 @@ input::-webkit-inner-spin-button {
   transition: all ease-in 0.2s;
 }
 
-.submit-btn:disabled {
-  color: #777;
-  background: rgba(255, 255, 255, 0);
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  border-right: 1px solid rgba(255, 255, 255, 0.3);
-}
-
 .submit-btn:hover {
   background: rgba(255, 255, 255, 0.3);
+}
+
+.error-msg {
+  font-size: 1.2rem;
+  color: #ff4242;
 }
 
 @media only screen and (max-width: 43.25em) {

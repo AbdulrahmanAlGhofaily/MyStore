@@ -41,49 +41,71 @@
     <h1 style="margin-top: 1.5rem">Total: ${{ total }}</h1>
   </div>
   <div class="payment-info container-child">
-    <form #form="ngForm" (ngSubmit)="submitForm()">
+    <form [formGroup]="orderForm" #form="ngForm" (ngSubmit)="submitForm()">
       <div class="payment-child">
         <h3>Full Name</h3>
         <input
-          required
+          class="form-input"
           type="text"
+          required
           name="name"
           minlength="3"
           maxlength="30"
+          for="fullname"
+          formControlName="fullName"
           [(ngModel)]="name"
           placeholder="(minimum 3 characters)"
         />
+        <div
+          class="error-msg"
+          *ngIf="submitted && this.orderForm.controls['fullName'].errors"
+        >
+          Full Name must be at least 3 characters.
+        </div>
       </div>
       <div class="payment-child">
         <h3>Address</h3>
         <input
+          class="form-input"
           type="text"
           required
+          name="address"
           minlength="6"
           maxlength="30"
-          name="address"
+          for="address"
+          formControlName="addressControl"
           [(ngModel)]="address"
           placeholder="(minimum 6 characters)"
         />
+        <div
+          class="error-msg"
+          *ngIf="submitted && this.orderForm.controls['addressControl'].errors"
+        >
+          Address must be at least 3 characters.
+        </div>
       </div>
       <div class="payment-child">
         <h3>Creadit Card Number</h3>
         <input
+          class="form-input"
           type="text"
           required
+          name="address"
           minlength="16"
           maxlength="16"
-          name="address"
+          for="cc"
+          formControlName="cc"
           [(ngModel)]="card"
           placeholder="(16 character)"
         />
+        <div
+          class="error-msg"
+          *ngIf="submitted && this.orderForm.controls['cc'].errors"
+        >
+          Credit Card must be 16 number.
+        </div>
       </div>
-      <input
-        class="submit-btn"
-        type="submit"
-        [disabled]="form.invalid"
-        value="Submit"
-      />
+      <input class="submit-btn" type="submit" value="Submit" />
     </form>
   </div>
 </div>

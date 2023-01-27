@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/models/CartItem';
 import { CartService } from 'src/app/services/cart.service';
 import { Router } from '@angular/router';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -18,8 +24,15 @@ export class CartComponent implements OnInit {
   name: string;
   address: string;
   card: string;
+  orderForm!: FormGroup;
+  submitted: boolean = false;
 
-  constructor(private cartService: CartService, private router: Router) {
+  constructor(
+    private cartService: CartService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {
+    // Declare variables
     this.item = {
       id: 0,
       name: '',
@@ -36,6 +49,35 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartItems = this.cartService.getCart();
     this.updateTotal();
+
+    // Validations
+    this.orderForm = this.formBuilder.group({
+      fullName: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(30),
+        ],
+      ],
+      addressControl: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(30),
+        ],
+      ],
+      cc: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(16),
+          Validators.maxLength(16),
+          Validators.pattern('^(0|[1-9][0-9]*)$'),
+        ],
+      ],
+    });
   }
 
   updateTotal() {
@@ -59,6 +101,10 @@ export class CartComponent implements OnInit {
   }
 
   submitForm() {
+    this.submitted = true;
+    if (this.orderForm.invalid) {
+      return;
+    }
     this.cartService.name = this.name;
     this.cartService.address = this.address;
     this.cartService.card = this.card;
